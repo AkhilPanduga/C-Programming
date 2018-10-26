@@ -1,4 +1,4 @@
-Grading at Fri Oct 26 04:28:12 UTC 2018
+Grading at Fri Oct 26 04:29:21 UTC 2018
 Attempting to compile retirement.c
 Checking for struct _retire_info
 Found on line 5, column 9 
