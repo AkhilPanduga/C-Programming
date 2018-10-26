@@ -2,11 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _retire_info {
+struct _retire_info {
   int months;
   double contribution;
   double rate_of_return;
-}retire_info;
+};
+
+typedef struct _retire_info retire_info;
 
 double account_balance (int x, double y, retire_info z) {
   for (int i = 1; i <= z.months; i++) {
@@ -17,11 +19,10 @@ double account_balance (int x, double y, retire_info z) {
   return y;
 }
 
-int retirement (int startAge, double initial, retire_info working, retire_info retired) {
+void retirement (int startAge, double initial, retire_info working, retire_info retired) {
   double w_savings = account_balance (startAge, initial, working);
   int retAge = startAge + working.months;
   account_balance (retAge, w_savings, retired);
-  return EXIT_SUCCESS;
 }
 
 int main(void) {
