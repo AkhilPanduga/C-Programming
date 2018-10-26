@@ -16,14 +16,57 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
+typedef struct rectangle_tag{
+  int x;
+  int y;
+  int width;
+  int height;
+} rectangle;
 
+int min_w (rectangle r1, rectangle r2) {
+  if (r1.x < r2.x) {
+    return r1.width;
+  }
+  return r2.width;
+}
+
+int min_h (rectangle r1, rectangle r2) {
+  if (r1.y < r2.y) {
+    return r1.height;
+  }
+  return r2.height;
+}
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
+  if (r.width < 0) {
+    r.x = r.x + r.width;
+    r.width = -r.width;
+  }
+  if (r.height < 0) {
+    r.y = r.y + r.height;
+    r.height = -r.height;
+  }
   return r;
 }
+
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
+  r1 = canonicalize (r1);
+  r2 = canonicalize (r2);
+  if ((max (r1.x, r2.x) > min (r1.x, r2.x) + min_w (r1, r2)) || (max (r1.y, r2.y) > min (r1.y, r2.y) + min_h (r1, r2))) {
+    r1.x = 0;
+    r1.y = 0;
+    r1.width = 0;
+    r1.height = 0;
+    return r1;
+  }
+  rectangle r_1;
+  r_1.x = max (r1.x ,r2.x);
+  r_1.y = max (r1.y ,r2.y);
+  r_1.width = min ((r1.x + r1.width), (r2.x + r2.width)) - r_1.x;
+  r_1.height = min ((r1.y + r1.height), (r2.y + r2.height)) - r_1.y;
+  r1 = r_1;
   return r1;
 }
 
