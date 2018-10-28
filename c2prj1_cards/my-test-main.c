@@ -1,7 +1,7 @@
 #include "cards.h"
 
 int main(void) {
-  card_t a = card_from_num(38);
+  card_t a = card_from_num(34);
   print_card(a);
   char c = 'A';
   char d = 's';

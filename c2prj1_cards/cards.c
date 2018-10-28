@@ -26,32 +26,32 @@ const char * ranking_to_string(hand_ranking_t r) {
 char value_letter(card_t c) {
   char x = '0';
   if((c.value >= 2) && (c.value <= 9))
-    x += c.value;
+    x = '0' + c.value;
   if(c.value == 10)
-    x += 0;
+    x = '0';
   if(c.value == VALUE_JACK)
-    x += 74;
+    x = 'J';
   if(c.value == VALUE_QUEEN)
-    x += 81;
+    x = 'Q';
   if(c.value == VALUE_KING)
-    x += 75;
+    x = 'K';
   if(c.value == VALUE_ACE)
-    x += 65;
-  return 'x';
+    x = 'A';
+  return x;
 }
 
 
 char suit_letter(card_t c) {
   char x = '0';
   if(c.suit == SPADES)
-    x += 115;
+    x = 's';
   if(c.suit == HEARTS)
-    x += 104;
+    x = 'h';
   if(c.suit == DIAMONDS)
-    x += 100;
+    x = 'd';
   if(c.suit == CLUBS)
-    x += 99;
-  return 'x';
+    x = 'c';
+  return x;
 }
 
 void print_card(card_t c) {
