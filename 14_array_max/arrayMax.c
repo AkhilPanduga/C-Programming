@@ -2,7 +2,10 @@
 #include <stdlib.h>
 
 int * arrayMax(int * array, int n) {
-  if (n != 0) {
+  if (n == 0) {
+    return NULL;
+  }
+  else {
     int * array_max = array;
     int q = *array;
     for (int i = 1; i < n; i++) {
@@ -11,9 +14,7 @@ int * arrayMax(int * array, int n) {
     }
     return array_max;
   }
-  else return NULL;
 }
-
 void doTest(int * array, int n) {
   printf("arrayMax(");
   if (array == NULL) {
