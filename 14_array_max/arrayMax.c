@@ -12,10 +12,9 @@ int * arrayMax(int * array, int n) {
       array++;
     }
     int * array_max = array_m;
-    int q = *array_max;
     for (int j = 1; j < n; j++) {
-      if (q < array[j])
-	array = &array[j];
+      if (*array_max < array_m[j])
+	array_max = &array_m[j];
     }
     return array_max;
   }
@@ -49,7 +48,7 @@ int main(void) {
   int array1[] = { 77, 33, 19, 99, 42, 6, 27, 4};
   int array2[] = { -3, -42, -99, -1000, -999, -88, -77};
   int array3[] = { 425, 59, -3, 77, 0, 36};
-
+  
   doTest (array1, 8);
   doTest (array2, 7);
   doTest (array3, 6);
