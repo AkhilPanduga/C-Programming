@@ -15,6 +15,9 @@ int main (void) {
   if (maxSeq(array2, 1) != 1) {
     return EXIT_FAILURE;
   }
+  if (maxSeq(array4, 10) != 5) {
+    return EXIT_FAILURE;
+  }
   if (maxSeq(array4, 8) != 5) {
     return EXIT_FAILURE;
   }
