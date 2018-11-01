@@ -6,11 +6,16 @@ int * arrayMax(int * array, int n) {
     return NULL;
   }
   else {
-    int * array_max = array;
-    int q = *array;
-    for (int i = 1; i < n; i++) {
-      if (q < array[i])
-	array_max = &array[i];
+    int array_m[n];
+    for (int i = 0; i < n; i++) {
+      array_m[i] = *array;
+      array++;
+    }
+    int * array_max = array_m;
+    int q = *array_max;
+    for (int j = 1; j < n; j++) {
+      if (q < array[j])
+	array = &array[j];
     }
     return array_max;
   }
