@@ -1,9 +1,10 @@
-Grading at Thu Nov  1 03:30:52 UTC 2018
+Grading at Thu Nov  1 06:00:09 UTC 2018
 Attempting to compile arrayMax.c 
 #################################################
 testcase1:
-Your file matched the expected output
-Your output matched what we expected
+Line_2_did_not_match
+Your file did not match the expected ouput
+Your output did not match what we expected.
 Removing your main() and replacing it with our own to run more tests...
 #################################################
 testcase2:
@@ -18,4 +19,4 @@ array size:100 was Incorrect
 testcase5:
 array size:5000 was Incorrect
 
-Overall Grade: D
+Overall Grade: F
