@@ -1,4 +1,4 @@
-Grading at Thu Nov  1 10:08:53 UTC 2018
+Grading at Thu Nov  1 10:26:12 UTC 2018
 **Testing broken implementation 10 **
 -------------------------------------
 
@@ -18,6 +18,35 @@ Grading at Thu Nov  1 10:08:53 UTC 2018
 **Testing broken implementation 3 **
 -------------------------------------
 
-Your test program did not identify /usr/local/l2p/subseq/subseq3.o as broken!
 
-Overall Grade: FAILED
+**Testing broken implementation 4 **
+-------------------------------------
+
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+
+**Testing correct implementation **
+-------------------------------------
+
+
+All test programs were handled correctly
+
+Overall Grade: PASSED
