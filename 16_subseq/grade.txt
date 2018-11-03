@@ -1,11 +1,18 @@
-Grading at Sat Nov  3 08:08:01 UTC 2018
+Grading at Sat Nov  3 12:12:50 UTC 2018
 Attempting to compile maxSeq.c 
-maxSeq.c:2:1: error: unknown type name ‘size_t’
- size_t maxSeq (int * array, size_t n) {
- ^
-maxSeq.c:2:29: error: unknown type name ‘size_t’
- size_t maxSeq (int * array, size_t n) {
-                             ^
+maxSeq.c: In function ‘maxSeq’:
+maxSeq.c:7:3: error: variable-sized object may not be initialized
+   int seq[n] = {0};
+   ^
+maxSeq.c:7:17: error: excess elements in array initializer [-Werror]
+   int seq[n] = {0};
+                 ^
+maxSeq.c:7:17: note: (near initialization for ‘seq’)
+maxSeq.c:12:32: error: ‘i’ undeclared (first use in this function)
+   for (unsigned j = 1; j <= n; i++) {
+                                ^
+maxSeq.c:12:32: note: each undeclared identifier is reported only once for each function it appears in
+cc1: all warnings being treated as errors
 The code did not compile!
 
 Overall Grade: F
