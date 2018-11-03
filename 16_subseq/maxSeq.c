@@ -1,18 +1,18 @@
 
-size_t maxSeq (int * array, size_t n) {
+int maxSeq (int * array, int n) {
   if (n == 0)
     return n;
-  size_t max = 1;
-  size_t l = 1;
+  int  max = 1;
+  int l = 1;
   int seq[n];
-  for (size_t k = 0; k <= n; k++) {
+  for (int k = 0; k < n; k++) {
     seq[k] = 0;
   }
-  for (size_t i = 0; i < n; i++) {
+  for (int i = 0; i < n; i++) {
     seq[i] = *array;
     array++;
   }
-  for (size_t j = 1; j <= n; j++) {
+  for (int j = 1; j < n; j++) {
     if (seq[j] > seq[j-1])
       l++;
     else
