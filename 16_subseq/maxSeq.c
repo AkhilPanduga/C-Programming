@@ -1,15 +1,15 @@
 
-size_t maxSeq (int * array, size_t n) {
+unsigned maxSeq (int * array, unsigned n) {
   if (n == 0)
     return n;
-  size_t max = 1;
-  size_t l = 1;
+  unsigned max = 1;
+  unsigned l = 1;
   int seq[n] = {0};
-  for (size_t i = 0; i < n; i++) {
+  for (unsigned i = 0; i < n; i++) {
     seq[i] = *array;
     array++;
   }
-  for (size_t j = 1; j <= n; i++) {
+  for (unsigned j = 1; j <= n; i++) {
     if (seq[j] > seq[j-1])
       l++;
     else
