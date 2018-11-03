@@ -17,7 +17,8 @@ void reverse(char * str) {
     }
     for (int k = 0; k < n; k++) {
       *str = temp [k];
-      str++;
+      if (k < (n - 1))
+	str++;
     }
   }
 }
