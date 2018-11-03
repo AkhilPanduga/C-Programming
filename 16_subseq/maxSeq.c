@@ -4,12 +4,15 @@ unsigned maxSeq (int * array, unsigned n) {
     return n;
   unsigned max = 1;
   unsigned l = 1;
-  int seq[n] = {0};
+  int seq[n];
+  for (unsigned k = 0; k <= n; k++) {
+    seq[k] = 0;
+  }
   for (unsigned i = 0; i < n; i++) {
     seq[i] = *array;
     array++;
   }
-  for (unsigned j = 1; j <= n; i++) {
+  for (unsigned j = 1; j <= n; j++) {
     if (seq[j] > seq[j-1])
       l++;
     else
