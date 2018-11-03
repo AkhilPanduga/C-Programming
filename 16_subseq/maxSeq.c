@@ -8,24 +8,29 @@ unsigned maxSeq (int * array, unsigned n) {
   for (unsigned k = 0; k < n; k++) {
     seq[k] = 0;
   }
-  unsigned array_l = sizeof(array)/sizeof(int);
+  /*unsigned array_l = sizeof(array)/sizeof(int);
   unsigned array_length = 1;
   if (array_l >= n){
     array_length = n;
   }
-  else array_length = array_l;
-  for (unsigned i = 0; i < array_length; i++) {
+  else array_length = array_l;*/
+  for (unsigned i = 0; i < n; i++) {
     seq[i] = *array;
     array++;
   }
   for (unsigned j = 1; j < n; j++) {
     if (seq[j] > seq[j-1])
       l++;
-    else
+    else {
       if (max < l) {
 	max = l;
 	l = 1;
       }
+      else {
+	max = 1;
+	l = 1;
+      }
+    }
     if (max < l)
       max = l;
   }

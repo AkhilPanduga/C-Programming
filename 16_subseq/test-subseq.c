@@ -10,18 +10,23 @@ int main (void) {
   int array4[] = { 1, 1, 2, 2, 3, 4, 5, 8};
 
   if (maxSeq(array1, 0) != 0) {
+    printf("no at 1");
     return EXIT_FAILURE;
   }
   if (maxSeq(array2, 1) != 1) {
-    return EXIT_FAILURE;
-  }
-  if (maxSeq(array4, 10) != 5) {
+    printf("no at 2");
     return EXIT_FAILURE;
   }
   if (maxSeq(array4, 8) != 5) {
+    printf("no at 3");
+    return EXIT_FAILURE;
+  }
+  if (maxSeq(array4, 10) != 5) {
+    printf("no at 4");
     return EXIT_FAILURE;
   }
   if (maxSeq(array3, 8) != 8) {
+    printf("no at 5");
     return EXIT_FAILURE;
   }
   printf("YES\n");
