@@ -1,3 +1,4 @@
+
 #include "eval.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -83,29 +84,36 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n) {
   size_t count = 0;
   card_t s, r;
   deck_t h_c = *hand;
-  for (size_t i = index + 1; i < (hand->n_cards); i++) {
+  size_t idx = index;
+  for (size_t i = idx + 1; i < (hand->n_cards); i++) {
     s = *(h_c.cards)[i];
-    r = *(h_c.cards)[index];
+    r = *(h_c.cards)[idx];
     if (fs != NUM_SUITS) {
-      if (((r.value - s.value) < 2) && (s.suit == fs)) {
+      if (r.suit == fs) {
+	if (((r.value - s.value) < 2) && (s.suit == fs)) {
+	  if ((r.value - s.value) == 0)
+	    idx = i;
+	  if ((r.value - s.value) == 1) {
+	    idx = i;
+	    count++;
+	    if (count == n-1)
+	      return 1;
+	  }
+	}
+	else return 0;
+      }
+      else return 0;
+    }
+    else {
+      if ((r.value - s.value) < 2) {
 	if ((r.value - s.value) == 0)
-	  index = i;
+	  idx = i;
 	if ((r.value - s.value) == 1) {
-	  index = i;
+	  idx = i;
 	  count++;
 	  if (count == n-1)
 	    return 1;
 	}
-      }
-    }
-    if ((r.value - s.value) < 2) {
-      if ((r.value - s.value) == 0)
-	index = i;
-      if ((r.value - s.value) == 1) {
-	index = i;
-	count++;
-	if (count == n-1)
-	  return 1;
       }
     }
   }
@@ -116,8 +124,9 @@ int is_ace_low_straight_at(deck_t * hand, size_t index, suit_t fs) {
   int b = is_n_length_straight_at(hand, index, fs, 5);
   deck_t h_c = *hand;
   card_t s;
+  size_t idx = index;
   if (b == 0) {
-    for (size_t i = index; i < (hand->n_cards); i++) {
+    for (size_t i = idx; i < (hand->n_cards); i++) {
       s = *(h_c.cards)[i];
       if (s.value == 5) {
 	int a = is_n_length_straight_at(hand, i, fs, 4);
