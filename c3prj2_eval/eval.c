@@ -32,7 +32,7 @@ int card_ptr_comp(const void * vp1, const void * vp2) {
 }
 
 suit_t flush_suit(deck_t * hand) {
-  size_t count = 1;
+  size_t count = 0;
   deck_t h_c = *hand;
   card_t s, r;
   for (size_t i = 0; i < (hand->n_cards) - 1; i++) {
@@ -69,7 +69,7 @@ size_t  find_secondary_pair(deck_t * hand,
 			     size_t match_idx) {
   deck_t h_c = *hand;
   card_t s, r;
-  for (size_t i = match_idx + 1; i < (hand->n_cards); i++) {
+  for (size_t i = 0; i < (hand->n_cards); i++) {
     s = *(h_c.cards)[i];
     r = *(h_c.cards)[match_idx];
     if (match_counts[i] > 1) {
