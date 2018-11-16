@@ -44,6 +44,7 @@ suit_t flush_suit(deck_t * hand) {
     }
     if (count >= 5)
       return s.suit;
+    count = 1;
   }
   return NUM_SUITS;
 }
