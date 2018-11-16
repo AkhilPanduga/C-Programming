@@ -163,6 +163,7 @@ hand_eval_t build_hand_from_match(deck_t * hand,
     index++;
   }
   if(idx == 0) {
+    index = n;
     for (size_t j = n; j < 5; j++) {
       ans.cards[j] = (h_c.cards)[index];
       index++;
@@ -174,7 +175,7 @@ hand_eval_t build_hand_from_match(deck_t * hand,
       index0++;
     }
   }
-  else {
+  if(idx < 5 - n) {
     for (size_t l = n; l < 5; l++) {
       ans.cards[l] = (h_c.cards)[index1];
       index1++;
