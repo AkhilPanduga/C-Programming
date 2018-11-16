@@ -32,7 +32,7 @@ int card_ptr_comp(const void * vp1, const void * vp2) {
 }
 
 suit_t flush_suit(deck_t * hand) {
-  size_t count = 0;
+  size_t count = 1;
   deck_t h_c = *hand;
   card_t s, r;
   for (size_t i = 0; i < (hand->n_cards) - 1; i++) {
