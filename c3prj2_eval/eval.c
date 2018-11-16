@@ -169,18 +169,20 @@ hand_eval_t build_hand_from_match(deck_t * hand,
       index++;
     }
   }
-  if(idx >= 5 - n) {
-    for (size_t k = n; k < 5; k++) {
-      ans.cards[k] = (h_c.cards)[index0];
-      index0++;
+  if (idx != 0) {
+    if(idx >= 5 - n) {
+      for (size_t k = n; k < 5; k++) {
+	ans.cards[k] = (h_c.cards)[index0];
+	index0++;
+      }
     }
-  }
-  if(idx < 5 - n) {
-    for (size_t l = n; l < 5; l++) {
-      ans.cards[l] = (h_c.cards)[index1];
-      index1++;
-      if (index1 == idx)
-	index1 += n;
+    if(idx < 5 - n) {
+      for (size_t l = n; l < 5; l++) {
+	ans.cards[l] = (h_c.cards)[index1];
+	index1++;
+	if (index1 == idx)
+	  index1 += n;
+      }
     }
   }
   return ans;
@@ -193,7 +195,12 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
   hand_eval_t h1 = evaluate_hand(hand1);
   hand_eval_t h2 = evaluate_hand(hand2);
   card_t s, r;
-  if (h1.ranking == h2.ranking) {
+  if (h1.ranking != h2.ranking) {
+    if (h1.ranking < h2.ranking)
+      return 1;
+    else return -1;
+  }
+  else {
     for (int j = 0; j < 5; j++) {
       s = *(h1.cards)[j];
       r = *(h2.cards)[j];
@@ -202,9 +209,6 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
     }
     return 0;
   }
-  if (h1.ranking > h2.ranking)
-    return 1;
-  else return -1;
 }
 
 
