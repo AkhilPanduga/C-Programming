@@ -26,27 +26,45 @@ void decrypt (int * arr) {
   else printf("%d\\n", key);
 }
 
+int lettercount (FILE * f) {
+  int c;
+  int n = 0;
+  while ((c = fgetc(f)) != EOF) {
+    if(isalpha(c)) {
+      n++;
+    }
+  }
+  return n;
+}
+
 int main (int argc, char ** argv) {
   if (argc != 2) {
     fprintf(stderr,"Enter Input File\n");
     return EXIT_FAILURE;
   }
   int c;
-  int n = 0;
+  int n;
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     perror("Error Opening File");
     return EXIT_FAILURE;
   }
-  int ch[10000];
-  while ((c = fgetc(f)) != EOF) {
+  n = lettercount(f);
+  if (fclose(f) != 0) {
+    perror("Failed to close the input file");
+    return EXIT_FAILURE;
+  }
+  int ch[n];
+  int i = 0;
+  FILE * g = fopen(argv[1], "r");
+  while ((c = fgetc(g)) != EOF) {
     if(isalpha(c)) {
-      ch[n] = tolower(c);
-      n++;
+      ch[i] = tolower(c);
+      i++;
     }
   }
   decrypt(ch);
-  if (fclose(f) != 0) {
+  if (fclose(g) != 0) {
     perror("Failed to close the input file");
     return EXIT_FAILURE;
   }
