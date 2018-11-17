@@ -18,14 +18,14 @@ void decrypt (FILE * f) {
   int key;
   while ((c = fgetc(f)) != EOF) {
     if(isalpha(c)) {
-      c = tolower(c);
       freq[c - 97] += 1;
     }
   }
   int max = maxfreq(freq);
   if (max >= 4)
     key = max - 4;
-  else key = max + 22;
+  if (max < 4)
+    key = max + 22;
   if (key >= 0 && key < 26)
     printf("%d\\n", key);
   else fprintf(stderr, "Decyption Failed");
