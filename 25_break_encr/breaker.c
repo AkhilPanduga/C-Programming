@@ -12,7 +12,7 @@ int maxfreq (int * arr) {
   return max;
 }
 
-void decrypt (FILE * f, int n) {
+void decrypt (FILE * g, int n) {
   int c;
   int i = 0;
   int ch[n];
