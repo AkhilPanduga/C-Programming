@@ -31,24 +31,19 @@ int main (int argc, char ** argv) {
     fprintf(stderr,"Enter Input File\n");
     return EXIT_FAILURE;
   }
-  int c, s;
+  int c;
   int n = 0;
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     perror("Error Opening File");
     return EXIT_FAILURE;
   }
-  while ((s = fgetc(f)) != EOF) {
-    if(isalpha(s)) {
-      n++;
-    }
-  }
   int i = 0;
-  int ch[n];
+  int ch[10000];
   while ((c = fgetc(f)) != EOF) {
     if(isalpha(c)) {
-      ch[i] = tolower(c);
-      i++;
+      ch[n] = tolower(c);
+      n++;
     }
   }
   decrypt(ch);
