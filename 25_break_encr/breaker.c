@@ -15,7 +15,7 @@ int maxfreq (int * arr) {
 void decrypt (FILE * g, int n) {
   int c;
   int i = 0;
-  int ch[n] = {0};
+  int ch[n];
   while ((c = fgetc(g)) != EOF) {
     if(isalpha(c)) {
       ch[i] = tolower(c);
