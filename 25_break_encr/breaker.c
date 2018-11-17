@@ -65,6 +65,7 @@ int main (int argc, char ** argv) {
   }
   FILE * g = fopen(argv[1], "r");
   decrypt(g, n);
+  fclose(g);
   if (fclose(g) != 0) {
     perror("Failed to close the input file");
     return EXIT_FAILURE;
