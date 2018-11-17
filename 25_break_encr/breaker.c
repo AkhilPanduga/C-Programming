@@ -18,7 +18,7 @@ void decrypt (FILE * g, int n) {
   int ch[n];
   while ((c = fgetc(g)) != EOF) {
     if(isalpha(c)) {
-      ch[i] = tolower(c);
+      c = tolower(c);
       i++;
     }
   }
@@ -58,6 +58,7 @@ int main (int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   n = lettercount(f);
+  fclose(f);
   if (fclose(f) != 0) {
     perror("Failed to close the input file");
     return EXIT_FAILURE;
