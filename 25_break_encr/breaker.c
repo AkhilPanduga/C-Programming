@@ -12,11 +12,20 @@ int maxfreq (int * arr) {
   return max;
 }
 
-void decrypt (int * arr) {
+void decrypt (FILE * f, int n) {
+  int c;
+  int i = 0;
+  int ch[n];
+  while ((c = fgetc(g)) != EOF) {
+    if(isalpha(c)) {
+      ch[i] = tolower(c);
+      i++;
+    }
+  }
   int freq[26] = {0};
   int key;
-  for (int i = 0; i < sizeof(arr)/sizeof(int); i++)
-    freq[arr[i] - 97] += 1;
+  for (int j = 0; j < n; j++)
+    freq[ch[j] - 97] += 1;
   int max = maxfreq(freq);
   if (max >= 4)
     key = max - 4;
@@ -42,7 +51,6 @@ int main (int argc, char ** argv) {
     fprintf(stderr,"Enter Input File\n");
     return EXIT_FAILURE;
   }
-  int c;
   int n;
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
@@ -54,16 +62,8 @@ int main (int argc, char ** argv) {
     perror("Failed to close the input file");
     return EXIT_FAILURE;
   }
-  int ch[n];
-  int i = 0;
   FILE * g = fopen(argv[1], "r");
-  while ((c = fgetc(g)) != EOF) {
-    if(isalpha(c)) {
-      ch[i] = tolower(c);
-      i++;
-    }
-  }
-  decrypt(ch);
+  decrypt(g, n);
   if (fclose(g) != 0) {
     perror("Failed to close the input file");
     return EXIT_FAILURE;
