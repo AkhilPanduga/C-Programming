@@ -1,14 +1,14 @@
-Grading at Sat Nov 17 08:56:26 UTC 2018
+Grading at Sat Nov 17 09:14:37 UTC 2018
 Attempting to compile breaker.c 
 gcc -Wall -Werror -pedantic -std=gnu99 -c breaker.c
 gcc -o breaker breaker.o
 testcase1 passed
 #################################################
 testcase2:
-testcase2 failed
+valgrind reported memory errors or your program ran too long
 #################################################
 testcase3:
-testcase3 failed
+valgrind reported memory errors or your program ran too long
 #################################################
 testcase4:
 valgrind reported memory errors or your program ran too long
