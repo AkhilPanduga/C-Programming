@@ -15,9 +15,9 @@ int maxfreq (int * arr) {
 void decrypt (int * arr) {
   int freq[26] = {0};
   int key;
-  for (int i = 0; j < sizeof(arr)/sizeof(int); i++)
+  for (int i = 0; i < sizeof(arr)/sizeof(int); i++)
     freq[arr[i] - 97] += 1;
-  max = maxfreq(freq);
+  int max = maxfreq(freq);
   if (max >= 4)
     key = max - 4;
   else key = max + 22;
@@ -31,19 +31,25 @@ int main (int argc, char ** argv) {
     fprintf(stderr,"Enter Input File\n");
     return EXIT_FAILURE;
   }
-  int c;
-  int ch[];
+  int c, s;
+  int n = 0;
+  FILE * f = fopen(argv[1], "r");
+  if (f == NULL) {
+    perror("Error Opening File");
+    return EXIT_FAILURE;
+  }
+  while ((s = fgetc(f)) != EOF) {
+    if(isalpha(s)) {
+      n++;
+    }
+  }
+  int i = 0;
+  int ch[n];
   while ((c = fgetc(f)) != EOF) {
-    int i = 0;
     if(isalpha(c)) {
       ch[i] = tolower(c);
       i++;
     }
-  }
-  FILE * f = fopen(argv[2], "r");
-  if (f == NULL) {
-    perror("Error Opening File");
-    return EXIT_FAILURE;
   }
   decrypt(ch);
   if (fclose(f) != 0) {
