@@ -27,7 +27,7 @@ void decrypt (FILE * f) {
   if (max < 4)
     key = max + 22;
   if (key >= 0 && key < 26)
-    printf("%d\\n", key);
+    printf("%d\n", key);
   else fprintf(stderr, "Decyption Failed");
 }
 
