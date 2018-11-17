@@ -1,16 +1,7 @@
-Grading at Sat Nov 17 08:18:12 UTC 2018
+Grading at Sat Nov 17 08:27:18 UTC 2018
 Attempting to compile breaker.c 
 gcc -Wall -Werror -pedantic -std=gnu99 -c breaker.c
-gcc -o breaker breaker.o
-testcase1 passed
-#################################################
-testcase2:
-valgrind reported memory errors or your program ran too long
-#################################################
-testcase3:
-valgrind reported memory errors or your program ran too long
-#################################################
-testcase4:
-valgrind reported memory errors or your program ran too long
+Makefile:7: recipe for target 'breaker.o' failed
+The code did not compile!
 
 Overall Grade: F
