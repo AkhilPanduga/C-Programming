@@ -92,12 +92,12 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n) {
     r = *(h_c.cards)[idx];
     if (fs != NUM_SUITS) {
       if (r.suit == fs) {
-	if (index != 0) {
-	  temp = *(h_c.cards)[index - 1];
-	  if (r.suit == temp.suit)
-	    return 0;
-	}
 	if ((r.value - s.value) < 2) {
+	  if (index != 0) {
+	    temp = *(h_c.cards)[index - 1];
+	    if (r.suit == temp.suit)
+	      return 0;
+	  }
 	  if (s.suit == fs) {
 	    if ((r.value - s.value) == 0)
 	      idx = i;
