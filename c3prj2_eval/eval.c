@@ -84,7 +84,7 @@ size_t  find_secondary_pair(deck_t * hand,
 int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n) {
   size_t count = 0;
   int diff = 1;
-  card_t s, r;
+  card_t s, r, temp;
   deck_t h_c = *hand;
   size_t idx = index;
   for (size_t i = idx + 1; i < (hand->n_cards); i++) {
@@ -93,25 +93,57 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n) {
     if (fs != NUM_SUITS) {
       if (r.suit == fs) {
 	if ((r.value - s.value) < 2) {
-	  if (s.suit == fs) {
-	    if ((r.value - s.value) == 0)
-	      idx = i;
-	    if ((r.value - s.value) == 1) {
-	      idx = i;
-	      count++;
-	      if (count == n-1)
-		return 1;
+	  if (index != 0) {
+	    temp = *(h_c.cards)[idx - 1];
+	    if (r.suit == temp.suit)
+	      return 0;
+	    else {
+	      if (s.suit == fs) {
+		if ((r.value - s.value) == 0)
+		  idx = i;
+		if ((r.value - s.value) == 1) {
+		  idx = i;
+		  count++;
+		  if (count == n-1)
+		    return 1;
+		}
+	      }
+	      else {
+		for (size_t j = i + 1; j < (hand->n_cards); j++) {
+		  s = *(h_c.cards)[j];
+		  if ((r.value - s.value) <= diff) {
+		    if(s.suit == fs) {
+		      count++;
+		      diff++;
+		      if (count == n-1)
+		    return 1;
+		    }
+		  }
+		}
+	      }
 	    }
 	  }
 	  else {
-	    for (size_t j = i + 1; j < (hand->n_cards); j++) {
-	      s = *(h_c.cards)[j];
-	      if ((r.value - s.value) <= diff) {
-		if(s.suit == fs) {
-		  count++;
-		  diff++;
-		  if (count == n-1)
-		    return 1;
+	    if (s.suit == fs) {
+	      if ((r.value - s.value) == 0)
+		idx = i;
+	      if ((r.value - s.value) == 1) {
+		idx = i;
+		count++;
+		if (count == n-1)
+		  return 1;
+	      }
+	    }
+	    else {
+	      for (size_t j = i + 1; j < (hand->n_cards); j++) {
+		s = *(h_c.cards)[j];
+		if ((r.value - s.value) <= diff) {
+		  if(s.suit == fs) {
+		    count++;
+		    diff++;
+		    if (count == n-1)
+		      return 1;
+		  }
 		}
 	      }
 	    }
