@@ -38,7 +38,6 @@ int main (int argc, char ** argv) {
     perror("Error Opening File");
     return EXIT_FAILURE;
   }
-  int i = 0;
   int ch[10000];
   while ((c = fgetc(f)) != EOF) {
     if(isalpha(c)) {
