@@ -16,7 +16,7 @@ void decrypt (FILE * f) {
   int c;
   int freq[26] = {0};
   int key;
-  while ((c = fgetc(g)) != EOF) {
+  while ((c = fgetc(f)) != EOF) {
     if(isalpha(c)) {
       c = tolower(c);
       freq[c - 97] += 1;
