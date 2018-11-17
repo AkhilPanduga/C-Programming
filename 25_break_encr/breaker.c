@@ -4,21 +4,21 @@
 #include <ctype.h>
 
 int maxfreq (int * arr) {
-  int max = 0;
+  int maxf = 0;
   for (int i = 0; i < 26; i++) {
-    if (arr[i] > arr[max])
-      max = i;
+    if (arr[i] > arr[maxf])
+      maxf = i;
   }
-  return max;
+  return maxf;
 }
 
 void decrypt (FILE * g, int n) {
   int c;
   int i = 0;
-  int ch[n];
+  int ch[n] = {0};
   while ((c = fgetc(g)) != EOF) {
     if(isalpha(c)) {
-      c = tolower(c);
+      ch[i] = tolower(c);
       i++;
     }
   }
@@ -37,13 +37,13 @@ void decrypt (FILE * g, int n) {
 
 int lettercount (FILE * f) {
   int c;
-  int n = 0;
+  int l = 0;
   while ((c = fgetc(f)) != EOF) {
     if(isalpha(c)) {
-      n++;
+      l++;
     }
   }
-  return n;
+  return l;
 }
 
 int main (int argc, char ** argv) {
@@ -51,7 +51,7 @@ int main (int argc, char ** argv) {
     fprintf(stderr,"Enter Input File\n");
     return EXIT_FAILURE;
   }
-  int n;
+  int n = 0;
   FILE * f = fopen(argv[1], "r");
   if (f == NULL) {
     perror("Error Opening File");
