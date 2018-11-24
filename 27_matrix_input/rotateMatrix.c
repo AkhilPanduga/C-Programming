@@ -47,6 +47,7 @@ int getmatrix(FILE * f) {
     for (int k = 0; k < 10; k++) {
       printf("%c",matrix[i][k]);
     }
+    printf("\n");
   }
   return EXIT_SUCCESS;
 }
