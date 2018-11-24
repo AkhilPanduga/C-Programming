@@ -1,4 +1,4 @@
-Grading at Sat Nov 24 04:35:07 UTC 2018
+Grading at Sat Nov 24 04:39:34 UTC 2018
 Attempting to compile rotateMatrix.c
 testcase1 passed
 #################################################
@@ -35,24 +35,19 @@ testcase9: normal1.txt normal2.txt
 testcase9 passed
 #################################################
 testcase10: normal1.txt
-Line_1_did_not_match
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
+Your file matched the expected output
+testcase10 passed
 #################################################
 testcase10: normal2.txt
-Line_1_did_not_match
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
+Your file matched the expected output
+testcase10 passed
 #################################################
 testcase10: normal3.txt
-Line_1_did_not_match
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
+Your file matched the expected output
+testcase10 passed
 #################################################
 testcase10: eof.txt
-Line_1_did_not_match
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
- (Maybe you mishandled reading character 0xFF?)
+Your file matched the expected output
+testcase10 passed
 
-Overall Grade: F
+Overall Grade: A
