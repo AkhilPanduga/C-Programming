@@ -34,7 +34,7 @@ int sortlines(FILE * f) {
     for (size_t l = 0; l < j; l++)
       free(lines[l]);
     free(lines);
-    return -1;
+    return EXIT_FAILURE;
   }
   sortData(lines, j);
   for (size_t k = 0; k < j; k++) {
@@ -66,13 +66,34 @@ int main(int argc, char ** argv) {
 	perror("Cannot open file");
 	return EXIT_FAILURE;
       }
+      /*while((len = getline(&in, &s, f)) >= 0) {
+	lines = realloc(lines, (j + 1) * sizeof(*lines));
+	lines[j] = in;
+	in = NULL;
+	j++;
+      }
+      free(in);
+      if (j == 0) {
+	fprintf(stderr, "Invalid no. of Lines");
+	for (size_t l = 0; l < j; l++)
+	  free(lines[l]);
+	free(lines);
+	return -1;
+      }
+      sortData(lines, j);
+      for (size_t k = 0; k < j; k++) {
+	printf("%s", lines[k]);
+	free(lines[k]);
+      }
+      free(lines);
+      return 0;*/
       result = sortlines(f);
-      if (result < 0)
-	return EXIT_FAILURE;
       if (fclose(f) != 0) {
 	perror("Failed to close the file");
 	return EXIT_FAILURE;
       }
+      if (result < 0)
+	return EXIT_FAILURE;
     }
   }
   return EXIT_SUCCESS;
