@@ -46,9 +46,9 @@ board_t * makeBoard(int w, int h, int numMines) {
   b->width = w;
   b->height = h;
   b->totalMines = numMines;
-  b->board = calloc(h, h * sizeof(int*));
+  b->board = calloc(h, h * sizeof(*(b->board)));
   for (int i = 0; i < h; i++)
-    b->board[i] = realloc(b->board[i], w * sizeof(int*));
+    b->board[i] = realloc(b->board[i], w * sizeof(*(b->board)));
   for (int y = 0; y < h; y++) {
     for (int x = 0; x < w; x++) {
       b->board[y][x] = UNKNOWN;
@@ -121,6 +121,14 @@ int countMines(board_t * b, int x, int y) {
     if(IS_MINE(b->board[y][x + 1]))
       mines++;
   }
+  else if (x == 0 && y == (b->height - 1)) {
+    if(IS_MINE(b->board[y - 1][x]))
+      mines++;
+    if(IS_MINE(b->board[y - 1][x + 1]))
+      mines++;
+    if(IS_MINE(b->board[y][x + 1]))
+      mines++;
+  }
   else if (x == 0) {
     for (int i = 0; i < 2; i++) {
       if(IS_MINE(b->board[y - 1][x + i]))
@@ -133,14 +141,6 @@ int countMines(board_t * b, int x, int y) {
 	mines++;
     }
   }
-  else if (x == 0 && y == (b->height - 1)) {
-    if(IS_MINE(b->board[y - 1][x]))
-      mines++;
-    if(IS_MINE(b->board[y - 1][x + 1]))
-      mines++;
-    if(IS_MINE(b->board[y][x + 1]))
-      mines++;
-  }
   //right
   else if (x == (b->width - 1) && y == 0) {
     if(IS_MINE(b->board[y][x - 1]))
@@ -148,6 +148,14 @@ int countMines(board_t * b, int x, int y) {
     if(IS_MINE(b->board[y + 1][x - 1]))
       mines++;
     if(IS_MINE(b->board[y + 1][x]))
+      mines++;
+  }
+  else if (x == (b->width - 1) && y == (b->height - 1)) {
+    if(IS_MINE(b->board[y][x - 1]))
+      mines++;
+    if(IS_MINE(b->board[y - 1][x - 1]))
+      mines++;
+    if(IS_MINE(b->board[y - 1][x]))
       mines++;
   }
   else if (x == (b->width - 1)) {
@@ -161,14 +169,6 @@ int countMines(board_t * b, int x, int y) {
       if(IS_MINE(b->board[y + 1][x - j]))
 	mines++;
     }
-  }
-  else if (x == (b->width - 1) && y == (b->height - 1)) {
-    if(IS_MINE(b->board[y][x - 1]))
-      mines++;
-    if(IS_MINE(b->board[y - 1][x - 1]))
-      mines++;
-    if(IS_MINE(b->board[y - 1][x]))
-      mines++;
   }
   //bottom
   else if (y == 0) {
