@@ -46,9 +46,9 @@ board_t * makeBoard(int w, int h, int numMines) {
   b->width = w;
   b->height = h;
   b->totalMines = numMines;
-  b->board = calloc(h, h * sizeof((b->board)));
+  b->board = calloc(h, h * sizeof(int*));
   for (int i = 0; i < h; i++)
-    b->board[i] = realloc(b->board[i], w * sizeof((b->board)));
+    b->board[i] = realloc(b->board[i], w * sizeof(int*));
   for (int y = 0; y < h; y++) {
     for (int x = 0; x < w; x++) {
       b->board[y][x] = UNKNOWN;
