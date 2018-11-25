@@ -1,0 +1,16 @@
+Grading at Sun Nov 25 02:56:22 UTC 2018
+Attempting to compile sortLines.c
+#################################################
+testcase1:
+valgrind reported memory errors
+#################################################
+testcase2:
+Your output is incorrect
+#################################################
+testcase3:
+valgrind reported memory errors
+#################################################
+testcase4:
+valgrind reported memory errors
+
+Overall Grade: F
