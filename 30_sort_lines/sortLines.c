@@ -60,7 +60,7 @@ int main(int argc, char ** argv) {
       return EXIT_FAILURE;
   }
   if (argc > 1) {
-    for(size_t i = 1; i <= argc; i++) {
+    for(size_t i = 1; i < argc; i++) {
       FILE * f = fopen(argv[i], "r");
       if (f == NULL) {
 	perror("Cannot open file");
