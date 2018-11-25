@@ -2,12 +2,16 @@
 #define __COUNTS_H__
 struct _one_count_t {
   //DEFINE ME
-
+  const char * str;
+  int nStrCount;
 };
 typedef struct _one_count_t one_count_t;
 
 struct _counts_t {
   //DEFINE ME
+  one_count_t ** arrayCount;
+  int arrayLen;
+  int unLen;
 };
 typedef struct _counts_t counts_t;
 
