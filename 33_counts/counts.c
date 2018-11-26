@@ -38,10 +38,10 @@ void addCount(counts_t * c, const char * name) {
 }
 void printCounts(counts_t * c, FILE * outFile) {
   //WRITE ME
-  if (c->unLen >= 1)
-    fprintf(outFile, "<unknown>: %d\n", c->unLen);
   for (int i = 0; i < c->arrayLen; i++)
     fprintf(outFile, "%s: %d\n", c->arrayCount[i]->str, c->arrayCount[i]->nStrCount);
+  if (c->unLen >= 1)
+    fprintf(outFile, "<unknown>: %d\n", c->unLen);
 }
 
 void freeCounts(counts_t * c) {
