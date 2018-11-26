@@ -45,6 +45,7 @@ int main(int argc, char ** argv) {
 
   printf("Known Hands:\n");
   for (int k = 0; k < fc.n_decks; k++) {
+    printf("f.decks[%d]\n", k);
     print_hand(&fc.decks[k]);
     printf("\n");
   }

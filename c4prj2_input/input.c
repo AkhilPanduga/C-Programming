@@ -12,11 +12,11 @@ deck_t * getHand(const char * str, future_cards_t * fc) {
   deck->cards = NULL;
   deck->n_cards = 0;
   int i = 0;
-  //char * nline = "\n";
+  char * nline = "\n";
   while(1) {
     if (*(str + i) == '?') {
       int n = 1;
-      while(isdigit(*(str + i + n)) != 0)
+      while(isdigit(*(str + i + n)))
 	n++;
       char str_n[n];
       for (int j = 0; j < n - 1; j++)
@@ -27,12 +27,12 @@ deck_t * getHand(const char * str, future_cards_t * fc) {
       add_future_card(fc, idx, ptr);
       i = i + n;
     }
-    else if (isalnum(*(str + i)) != 0) {
+    else if (isalnum(*(str + i))) {
       card_t card = card_from_letters(*(str + i), *(str + i + 1));
       add_card_to(deck, card);
       i = i + 2;
     }
-    else if (strcmp((str + i), "\n") == 0)
+    else if (strcmp((str + i), nline) == 0)
       break;
     else i++;
   }
@@ -47,12 +47,13 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
   size_t s = 0;
   int i = 0;
   while (getline(&lines, &s, f) > 0) {
-    deck_ts = realloc(deck_ts, (*n_hands + 1) * sizeof(**deck_ts));
+    *n_hands++;
+    deck_ts = realloc(deck_ts, (*n_hands) * sizeof(**deck_ts));
     deck_t * deck = getHand(lines, fc);
     deck_ts[i] = deck;
-    i++;
     free(lines);
     lines = NULL;
+    i++;
   }
   free(lines);
   return deck_ts;

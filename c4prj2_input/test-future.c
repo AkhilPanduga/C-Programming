@@ -41,9 +41,9 @@ int main(int argc, char ** argv) {
   printf("Future Cards\n");
   for (int l = 0; l < fc.n_decks; l++) {
     print_hand(&fc.decks[l]);
-    printf("\n");
   }
-
+  printf("\n");
+  
   free_deck(deck);
   free_deck(d_shuffle);
   return EXIT_SUCCESS;
