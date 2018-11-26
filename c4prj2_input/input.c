@@ -15,7 +15,9 @@ deck_t * getHand(const char * str, future_cards_t * fc) {
   //char * nline = "\n";
   while(1) {
     if (*(str + i) == '?') {
-      for (int n = 1; isdigit(*(str + i + n)) != 0; n++);
+      int n = 1;
+      while(isdigit(*(str + i + n)) != 0)
+	n++;
       char str_n[n];
       for (int j = 0; j < n - 1; j++)
 	str_n[j] = *(str + i + j + 1);
