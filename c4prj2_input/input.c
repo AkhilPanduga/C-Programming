@@ -7,12 +7,13 @@
 #include "cards.h"
 #include "input.h"
 
-deck_t * getHand(char * str, future_cards_t * fc) {
+deck_t * getHand(const char * str, future_cards_t * fc) {
   deck_t * deck = malloc(sizeof(*deck));
   deck->cards = NULL;
   deck->n_cards = 0;
   int i = 0;
-  while(TRUE) {
+  //char * nline = "\n";
+  while(1) {
     if (*(str + i) == '?') {
       for (int n = 1; isdigit(*(str + i + n)) != 0; n++);
       char str_n[n];
@@ -29,7 +30,7 @@ deck_t * getHand(char * str, future_cards_t * fc) {
       add_card_to(deck, card);
       i = i + 2;
     }
-    else if (strcmp((str + i), '\n') == 0)
+    else if (strcmp((str + i), "\n") == 0)
       break;
     else i++;
   }
