@@ -1,4 +1,4 @@
-Grading at Mon Nov 26 06:46:52 UTC 2018
+Grading at Mon Nov 26 06:52:50 UTC 2018
 Compiling cards.c -> cards.o
 Compiling deck.c -> deck.o
 Compiling input.c -> input.o
@@ -18,59 +18,59 @@ Testing with input file with
  o Many hands
  o 1 unknown/future cards per hand
 Valgrind reported errors:
-==2431== Memcheck, a memory error detector
-==2431== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==2431== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==2431== Command: ./tester h.txt d.txt
-==2431== Parent PID: 2430
-==2431== 
-==2431== Invalid read of size 8
-==2431==    at 0x4010D9: future_cards_from_deck (in /graderhome/work/c4prj2_input/tester)
-==2431==    by 0x401D3A: main (test-input.c:81)
-==2431==  Address 0x5206ee8 is 8 bytes after a block of size 64 alloc'd
-==2431==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2431==    by 0x400E84: add_future_card (in /graderhome/work/c4prj2_input/tester)
-==2431==    by 0x400C34: getHand (in /graderhome/work/c4prj2_input/tester)
-==2431==    by 0x400DBF: read_input (in /graderhome/work/c4prj2_input/tester)
-==2431==    by 0x401C60: main (test-input.c:69)
-==2431== 
-==2431== 
-==2431== HEAP SUMMARY:
-==2431==     in use at exit: 0 bytes in 0 blocks
-==2431==   total heap usage: 123 allocs, 123 frees, 16,272 bytes allocated
-==2431== 
-==2431== All heap blocks were freed -- no leaks are possible
-==2431== 
-==2431== For counts of detected and suppressed errors, rerun with: -v
-==2431== ERROR SUMMARY: 4 errors from 1 contexts (suppressed: 0 from 0)
+==2597== Memcheck, a memory error detector
+==2597== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2597== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2597== Command: ./tester h.txt d.txt
+==2597== Parent PID: 2596
+==2597== 
+==2597== Invalid read of size 8
+==2597==    at 0x4010D5: future_cards_from_deck (in /graderhome/work/c4prj2_input/tester)
+==2597==    by 0x401D36: main (test-input.c:81)
+==2597==  Address 0x5206ee8 is 8 bytes after a block of size 64 alloc'd
+==2597==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2597==    by 0x400E84: add_future_card (in /graderhome/work/c4prj2_input/tester)
+==2597==    by 0x400C34: getHand (in /graderhome/work/c4prj2_input/tester)
+==2597==    by 0x400DBF: read_input (in /graderhome/work/c4prj2_input/tester)
+==2597==    by 0x401C5C: main (test-input.c:69)
+==2597== 
+==2597== 
+==2597== HEAP SUMMARY:
+==2597==     in use at exit: 0 bytes in 0 blocks
+==2597==   total heap usage: 123 allocs, 123 frees, 16,240 bytes allocated
+==2597== 
+==2597== All heap blocks were freed -- no leaks are possible
+==2597== 
+==2597== For counts of detected and suppressed errors, rerun with: -v
+==2597== ERROR SUMMARY: 4 errors from 1 contexts (suppressed: 0 from 0)
 Testing with input file with 
  o Many hands
  o Many unknown/future cards per hand
 Valgrind reported errors:
-==2437== Memcheck, a memory error detector
-==2437== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==2437== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==2437== Command: ./tester i1 i2
-==2437== Parent PID: 2436
-==2437== 
-==2437== Invalid read of size 8
-==2437==    at 0x4010D9: future_cards_from_deck (in /graderhome/work/c4prj2_input/tester)
-==2437==    by 0x401D3A: main (test-input.c:81)
-==2437==  Address 0x5208978 is 8 bytes after a block of size 192 alloc'd
-==2437==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2437==    by 0x400E84: add_future_card (in /graderhome/work/c4prj2_input/tester)
-==2437==    by 0x400C34: getHand (in /graderhome/work/c4prj2_input/tester)
-==2437==    by 0x400DBF: read_input (in /graderhome/work/c4prj2_input/tester)
-==2437==    by 0x401C60: main (test-input.c:69)
-==2437== 
-==2437== 
-==2437== HEAP SUMMARY:
-==2437==     in use at exit: 0 bytes in 0 blocks
-==2437==   total heap usage: 306 allocs, 306 frees, 23,008 bytes allocated
-==2437== 
-==2437== All heap blocks were freed -- no leaks are possible
-==2437== 
-==2437== For counts of detected and suppressed errors, rerun with: -v
-==2437== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)
+==2603== Memcheck, a memory error detector
+==2603== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2603== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2603== Command: ./tester i1 i2
+==2603== Parent PID: 2602
+==2603== 
+==2603== Invalid read of size 8
+==2603==    at 0x4010D5: future_cards_from_deck (in /graderhome/work/c4prj2_input/tester)
+==2603==    by 0x401D36: main (test-input.c:81)
+==2603==  Address 0x52088b8 is 8 bytes after a block of size 192 alloc'd
+==2603==    at 0x4C2FD5F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2603==    by 0x400E84: add_future_card (in /graderhome/work/c4prj2_input/tester)
+==2603==    by 0x400C34: getHand (in /graderhome/work/c4prj2_input/tester)
+==2603==    by 0x400DBF: read_input (in /graderhome/work/c4prj2_input/tester)
+==2603==    by 0x401C5C: main (test-input.c:69)
+==2603== 
+==2603== 
+==2603== HEAP SUMMARY:
+==2603==     in use at exit: 0 bytes in 0 blocks
+==2603==   total heap usage: 306 allocs, 306 frees, 22,776 bytes allocated
+==2603== 
+==2603== All heap blocks were freed -- no leaks are possible
+==2603== 
+==2603== For counts of detected and suppressed errors, rerun with: -v
+==2603== ERROR SUMMARY: 6 errors from 1 contexts (suppressed: 0 from 0)
 
 Overall Grade: C
